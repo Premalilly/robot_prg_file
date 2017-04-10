@@ -2,7 +2,7 @@
 
 Documentation	  Ruckus Wireless Monitoring Server User Interface Test
 ...
-...               Python RobotFramework with Selenium 2 Library
+...               Python RobotFramework with Selenium 2 Library test
 
 Library           Selenium2Library
 
