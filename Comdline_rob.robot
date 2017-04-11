@@ -2,7 +2,7 @@
 
 Documentation	  Ruckus Wireless Monitoring Server User Interface Test
 ...
-...               Python RobotFramework with Selenium 2 Library test
+...               Python RobotFramework with Selenium 2 Library
 
 Library           Selenium2Library
 
@@ -32,12 +32,12 @@ Test Dashboard
     Page Should Contain    Events
 
 Test Admin page
-  
+
    Test Users page		 Administration	 Users	Accounts
-   Test List page		 Administration	 Tenants	tenants	 Tenants
+   Test List pages		 Administration	 Tenants	tenants	 Tenants
    Test List page		 Administration	 Controller Authorization	controllerauthorization	Controller Authorization
-   Test Datamanagement page      Administration  Data Management   Agent Management  
-   Test wmscluster page   	 Administration  WMS Cluster   Node Management  
+   Test Datamanagement page      Administration  Data Management   Agent Management
+   Test wmscluster page   	 Administration  WMS Cluster   Node Management
    Test List page		 Administration	 Smartzone Releases	releases	Smartzone Releases
 
 
@@ -77,54 +77,94 @@ Click Login
     Click Button  Sign In
 
 Test Users page
-     [Arguments]  	${mainmenu}   ${text}  ${item} 
+    [Arguments]  	${mainmenu}   ${text}  ${item}
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='accounts']
     Sleep	2s
     Page Should Contain    ${item}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='groups']
     Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
 
-Test List page
+Test List pages
     [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
-    Mouse Over    partial link = ${mainmenu} 
+    Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
     Page Should Contain    ${text}
-   
+
+Test List page
+    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    Mouse Over    partial link = ${mainmenu}
+    Click Element    link = ${submenu}
+    Sleep	3s
+    Page Should Contain    ${text}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
+
 Test Datamanagement page
-    [Arguments]  	${mainmenu}   ${text}  ${item} 
+    [Arguments]  	${mainmenu}   ${text}  ${item}
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='agents']
     Sleep	2s
     Page Should Contain    ${item}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='datalake']
     Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
 
 
 Test Wmscluster page
-    [Arguments]  	${mainmenu}   ${text}  ${item} 
+    [Arguments]  	${mainmenu}   ${text}  ${item}
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='nodes']
     Sleep	2s
     Page Should Contain    ${item}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='settings']
     Sleep	2s
-    
-    
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
 
 
 
 
 
 
-    
+
