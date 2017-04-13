@@ -10,7 +10,7 @@ Library           Selenium2Library
 *** Variables ***
 
 ${Browser}        firefox
-
+${searchtext}     goss
 
 *** Test Cases ***
 
@@ -52,8 +52,14 @@ Test Manage pages
     Test List page	Manage	Client Sessions	uesessions	Client Sessions
 
 Test Report pages
+
     Test List page	Reporting	Alarms	alarms	Alarms
     Test List page	Reporting	Events	events	Events
+
+
+Test Global pages
+    Click search button
+
 
 Logout From WMS
     Mouse Over    partial link = ${USERNAME}
@@ -163,8 +169,10 @@ Test Wmscluster page
     Sleep	2s
 
 
-
-
-
-
+Click search button
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        2s
 
