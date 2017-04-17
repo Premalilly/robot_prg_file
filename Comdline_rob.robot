@@ -9,7 +9,7 @@ Library           Selenium2Library
 
 *** Variables ***
 
-${Browser}        firefox
+${Browser}        Firefox
 ${searchtext}     goss
 
 *** Test Cases ***
@@ -30,9 +30,10 @@ Test Dashboard
     Page Should Contain    Access Points
     Page Should Contain    Controllers
     Page Should Contain    Events
+    Click home button
+
 
 Test Admin page
-
    Test Users page		 Administration	 Users	Accounts
    Test List pages		 Administration	 Tenants	tenants	 Tenants
    Test List page		 Administration	 Controller Authorization	controllerauthorization	Controller Authorization
@@ -42,14 +43,13 @@ Test Admin page
 
 
 Test Manage pages
-
     Test List page	Manage	Dashboards	manage	Dashboards
     Test List page	Manage	Clusters	clusters	Clusters
     Test List page	Manage	Zones	zone	Zones
     Test List page	Manage	Controllers	controller	Controllers
     Test List page	Manage	Access Points	accesspoints	Access Points
-    Test List page	Manage	Client Devices	uedevices	Client Devices
-    Test List page	Manage	Client Sessions	uesessions	Client Sessions
+    Test List page	Manage	Client Devices	 uedevices	Client Devices
+    Test List page	Manage	Client Sessions 	uesessions	Client Sessions
 
 Test Report pages
 
@@ -67,6 +67,7 @@ Logout From WMS
     Page Should Contain    Successfully logged out!
     [Teardown]    Close Browser
 
+
 *** Keywords ***
 
 Open Browser to the Login Page
@@ -81,6 +82,30 @@ Enter Password
 
 Click Login
     Click Button  Sign In
+
+
+Click home button
+    Click Element   xpath=//div[@id='tpgraph']/div/wms-charts/div[1]/div/a/button
+    Sleep      4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep     2s
+    Click Element   xpath=//div[@id='csgraph']/div/wms-charts/div[1]/div/a/button
+    Sleep      4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep     2s
+    Click Element   xpath=//div[@id='worldpie']/div/wms-charts/div[1]/div/a/button
+    Sleep      4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep     2s
+    Click Element   xpath=//div[@id='osgraph']/div/wms-charts/div[1]/div/a/button
+    Sleep      4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep     2s
+    Click Element   xpath=//div[@id='apgraph']/div/wms-charts/div[1]/div/a/button
+    Sleep      4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep     2s
+
 
 Test Users page
     [Arguments]  	${mainmenu}   ${text}  ${item}
@@ -104,12 +129,14 @@ Test Users page
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
 
+
 Test List pages
     [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
     Page Should Contain    ${text}
+
 
 Test List page
     [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
@@ -122,6 +149,7 @@ Test List page
     Sleep	2s
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
+
 
 Test Datamanagement page
     [Arguments]  	${mainmenu}   ${text}  ${item}
@@ -175,4 +203,5 @@ Click search button
     Sleep        2s
     Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
     Sleep        2s
+
 
