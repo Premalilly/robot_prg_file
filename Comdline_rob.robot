@@ -33,6 +33,7 @@ Test Dashboard
     Click home button
 
 
+
 Test Admin page
    Test Users page		 Administration	 Users	Accounts
    Test List pages		 Administration	 Tenants	tenants	 Tenants
@@ -45,7 +46,7 @@ Test Admin page
 Test Manage pages
     Test List page	Manage	Dashboards	manage	Dashboards
     Test List page	Manage	Clusters	clusters	Clusters
-    Test List page	Manage	Zones	zone	Zones
+    Test List page	Manage	Zones	        zone	        Zones
     Test List page	Manage	Controllers	controller	Controllers
     Test List page	Manage	Access Points	accesspoints	Access Points
     Test List page	Manage	Client Devices	 uedevices	Client Devices
@@ -66,6 +67,9 @@ Logout From WMS
     Click Element    link = Sign out
     Page Should Contain    Successfully logged out!
     [Teardown]    Close Browser
+
+
+
 
 
 *** Keywords ***
@@ -105,6 +109,20 @@ Click home button
     Sleep      4s
     Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
     Sleep     2s
+    Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='graphtype']   Trend
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='graphtype']    Anomalies
+    Sleep        4s
 
 
 Test Users page
@@ -172,6 +190,20 @@ Test Datamanagement page
     Sleep	2s
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
+    Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    content
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    time
+    Sleep        4s
 
 
 Test Wmscluster page
