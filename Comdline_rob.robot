@@ -47,15 +47,15 @@ Test Manage pages
     Test List page	Manage	Dashboards	manage	Dashboards
     Test List page	Manage	Clusters	clusters	Clusters
     Test List page	Manage	Zones	        zone	        Zones
-    Test List page	Manage	Controllers	controller	Controllers
-    Test List page	Manage	Access Points	accesspoints	Access Points
+    Test List paging	Manage	Controllers	controller	Controllers
+    Test List access	Manage	Access Points	accesspoints	Access Points
     Test List page	Manage	Client Devices	 uedevices	Client Devices
-    Test List page	Manage	Client Sessions 	uesessions	Client Sessions
+    Test List client	Manage	Client Sessions 	uesessions	Client Sessions
 
 Test Report pages
 
     Test List page	Reporting	Alarms	alarms	Alarms
-    Test List page	Reporting	Events	events	Events
+    Test List eventgraph	Reporting	Events	events	Events
 
 
 Test Global pages
@@ -204,6 +204,14 @@ Test Datamanagement page
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    time
     Sleep        4s
+    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
 
 
 Test Wmscluster page
@@ -229,11 +237,215 @@ Test Wmscluster page
     Sleep	2s
 
 
+Test List paging
+    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    Mouse Over    partial link = ${mainmenu}
+    Click Element    link = ${submenu}
+    Sleep	3s
+    Page Should Contain    ${text}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
+    Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    state
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    model
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    version
+    Sleep        4s
+    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+
+
+Test List access
+    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    Mouse Over    partial link = ${mainmenu}
+    Click Element    link = ${submenu}
+    Sleep	3s
+    Page Should Contain    ${text}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
+    Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    state
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    model
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='chart_type']    firmware
+    Sleep        4s
+    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+
+
+Test List client
+    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    Mouse Over    partial link = ${mainmenu}
+    Click Element    link = ${submenu}
+    Sleep	3s
+    Page Should Contain    ${text}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
+     Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='cls_type']    session
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='cls_type']    network
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='cls_type']    os
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='cls_type']    authenication
+    Sleep        4s
+    Select From List    xpath=//select[@ng-model='cls_type']    wifi
+    Sleep        4s
+    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+
+
+Test List eventgraph
+    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    Mouse Over    partial link = ${mainmenu}
+    Click Element    link = ${submenu}
+    Sleep	3s
+    Page Should Contain    ${text}
+    Click Element   xpath=//div[@class='box-header with-border']/span/input
+    Input Text    xpath=//div[@class='box-header with-border']/span/input      ${Searchval}
+    Sleep	2s
+    Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
+    Sleep	2s
+     Click Button   Today
+    Sleep        4s
+    Click Button   Week
+    Sleep        4s
+    Click Button   Month
+    Sleep        4s
+    Click Element   xpath=//button[@id='daterange']
+    Sleep        4s
+    Click Element   xpath=//button[@title='Reload']
+    Sleep        4s
+    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div/div[2]/div/wms-charts/div[1]/div/a/button
+    Sleep        4s
+    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
+    Sleep        2s
+
+
 Click search button
     Click Element   xpath=//div[@class='form-group has-feedback']/input
     Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
     Sleep        2s
     Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
     Sleep        2s
+    Click Element    xpath=//div[@class='box-body']/ul/li[1]/p/a/b
+    Sleep        3s
+    Title Should Be    Ryans-MBP-2 | Client Devices | Ruckus WMS
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[2]/p/a/b
+    Sleep        3s
+    Title Should Be      Ryans-iPhone | Client Devices | Ruckus WMS
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[3]/p/a/b
+    Sleep        3s
+    Title Should Be     Ryans-iPad | Client Devices | Ruckus WMS
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[4]/p/a/b
+    Sleep        3s
+    Title Should Be     ryan-laptop | Client Devices | Ruckus WMS
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[5]/p/a/b
+    Sleep        3s
+    Page Should Contain      Unknown
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[6]/p/a/b
+    Sleep        3s
+    Title Should Be     Testing | User Accounts | Ruckus WMS
+
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Sleep        2s
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Sleep        4s
+    Click Element    xpath=//div[@class='box-body']/ul/li[7]/p/a/b
+    Sleep        3s
+    Title Should Be     rgoss | User Accounts | Ruckus WMS
+
 
 
