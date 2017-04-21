@@ -10,7 +10,7 @@ Library           Selenium2Library
 *** Variables ***
 
 ${Browser}        Firefox
-${searchtext}     goss
+${searchtext}     ryan
 
 *** Test Cases ***
 
@@ -40,17 +40,18 @@ Test Admin page
    Test List page		 Administration	 Controller Authorization	controllerauthorization	Controller Authorization
    Test Datamanagement page      Administration  Data Management   Agent Management
    Test wmscluster page   	 Administration  WMS Cluster   Node Management
-   Test List page		 Administration	 Smartzone Releases	releases	Smartzone Releases
+   Test List page		 Administration	 Smartzone Releases   releases	 Smartzone Releases
+
 
 
 Test Manage pages
-    Test List page	Manage	Dashboards	manage	Dashboards
-    Test List page	Manage	Clusters	clusters	Clusters
-    Test List page	Manage	Zones	        zone	        Zones
-    Test List paging	Manage	Controllers	controller	Controllers
-    Test List access	Manage	Access Points	accesspoints	Access Points
-    Test List page	Manage	Client Devices	 uedevices	Client Devices
-    Test List client	Manage	Client Sessions 	uesessions	Client Sessions
+    Test List page	Manage	 Dashboards	 manage	    Dashboards
+    Test List page	Manage	 Clusters	 clusters	Clusters
+    Test List page	Manage	 Zones	         zone	        Zones
+    Test List paging	Manage	 Controllers	 controller	Controllers
+    Test List access	Manage	 Access Points	 accesspoints	Access Points
+    Test List page	Manage	 Client Devices	  uedevices	Client Devices
+    Test List client	Manage	 Client Sessions 	uesessions	Client Sessions
 
 Test Report pages
 
@@ -112,12 +113,6 @@ Click home button
     Click Button   Today
     Sleep        4s
     Click Button   Week
-    Sleep        4s
-    Click Button   Month
-    Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
     Sleep        4s
     Select From List    xpath=//select[@ng-model='graphtype']   Trend
     Sleep        4s
@@ -196,10 +191,6 @@ Test Datamanagement page
     Sleep        4s
     Click Button   Month
     Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
-    Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    content
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    time
@@ -211,7 +202,7 @@ Test Datamanagement page
     Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
     Sleep        4s
     Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
-    Sleep        2s
+    Sleep        3s
 
 
 Test Wmscluster page
@@ -226,6 +217,8 @@ Test Wmscluster page
     Sleep	2s
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
+    Click Button    Upgrade
+    Sleep       2s
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='settings']
@@ -253,10 +246,6 @@ Test List paging
     Click Button   Week
     Sleep        4s
     Click Button   Month
-    Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    state
     Sleep        4s
@@ -291,10 +280,6 @@ Test List access
     Sleep        4s
     Click Button   Month
     Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
-    Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    state
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    model
@@ -327,10 +312,6 @@ Test List client
     Click Button   Week
     Sleep        4s
     Click Button   Month
-    Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
     Sleep        4s
     Select From List    xpath=//select[@ng-model='cls_type']    session
     Sleep        4s
@@ -367,12 +348,6 @@ Test List eventgraph
     Sleep        4s
     Click Button   Week
     Sleep        4s
-    Click Button   Month
-    Sleep        4s
-    Click Element   xpath=//button[@id='daterange']
-    Sleep        4s
-    Click Element   xpath=//button[@title='Reload']
-    Sleep        4s
     Click Element   xpath=//*[@class='box-tools pull-right']/a/button
     Sleep        4s
     Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
@@ -402,50 +377,6 @@ Click search button
     Sleep        3s
     Title Should Be      Ryans-iPhone | Client Devices | Ruckus WMS
 
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[3]/p/a/b
-    Sleep        3s
-    Title Should Be     Ryans-iPad | Client Devices | Ruckus WMS
-
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[4]/p/a/b
-    Sleep        3s
-    Title Should Be     ryan-laptop | Client Devices | Ruckus WMS
-
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[5]/p/a/b
-    Sleep        3s
-    Page Should Contain      Unknown
-
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[6]/p/a/b
-    Sleep        3s
-    Title Should Be     Testing | User Accounts | Ruckus WMS
-
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[7]/p/a/b
-    Sleep        3s
-    Title Should Be     rgoss | User Accounts | Ruckus WMS
 
 
 
