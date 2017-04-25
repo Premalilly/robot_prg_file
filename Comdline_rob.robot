@@ -338,7 +338,7 @@ Test List client
 
 
 Test List eventgraph
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments]	${mainmenu}	  ${submenu}     ${link}	 ${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
