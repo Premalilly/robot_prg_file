@@ -15,12 +15,14 @@ ${searchtext}     ryan
 *** Test Cases ***
 
 TestLogin
+    [Tags]       run-once
     Open Browser to the Login Page
     Enter User Name
     Enter Password
     Click Login
 
 Test Dashboard
+    [Tags]       run-once
     Title Should Be    Dashboard | Ruckus WMS
     Page Should Contain    Dashboard
     Page Should Contain    Throughput
@@ -60,10 +62,12 @@ Test Report pages
 
 
 Test Global pages
+    [Tags]     run-once
     Click search button
 
 
 Logout From WMS
+    [Tags]       run-once
     Mouse Over    partial link = ${USERNAME}
     Click Element    link = Sign out
     Page Should Contain    Successfully logged out!
@@ -359,23 +363,14 @@ Test List eventgraph
 
 
 Click search button
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Click Element    xpath=//div[@class='form-group has-feedback']/input
+    Input Text     xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
     Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
-    Sleep        2s
-    Click Element    xpath=//div[@class='box-body']/ul/li[1]/p/a/b
-    Sleep        3s
-    Title Should Be    Ryans-MBP-2 | Client Devices | Ruckus WMS
-
-    Click Element   xpath=//div[@class='form-group has-feedback']/input
-    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
-    Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
+    Press Key     xpath=//div[@class='form-group has-feedback']/input     \\13
     Sleep        4s
-    Click Element    xpath=//div[@class='box-body']/ul/li[2]/p/a/b
+    Click Element     xpath=//div[@class='box-body']/ul/li[1]/p/a/b
     Sleep        3s
-    Title Should Be      Ryans-iPhone | Client Devices | Ruckus WMS
+    Title Should Be       Ryans-iPhone | Client Devices | Ruckus WMS
 
 
 
