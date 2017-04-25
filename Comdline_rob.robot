@@ -148,7 +148,7 @@ Test Users page
 
 
 Test List pages
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments]	 ${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -156,7 +156,7 @@ Test List pages
 
 
 Test List page
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments]	 ${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -235,7 +235,7 @@ Test Wmscluster page
 
 
 Test List paging
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments]	 ${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -268,7 +268,7 @@ Test List paging
 
 
 Test List access
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments] 	${mainmenu} 	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -301,7 +301,7 @@ Test List access
 
 
 Test List client
-    [Arguments]	${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments] 	${mainmenu}	  ${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -338,7 +338,7 @@ Test List client
 
 
 Test List eventgraph
-    [Arguments]	${mainmenu}	  ${submenu}     ${link}	 ${text}
+    [Arguments]	 ${mainmenu}	  ${submenu}     ${link}	 ${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
