@@ -368,6 +368,8 @@ Click search button
     Sleep        2s
     Press Key     xpath=//div[@class='form-group has-feedback']/input     \\13
     Sleep        4s
+    Page Should Not Contain      highlight
+    Sleep     2s
     Click Element     xpath=//div[@class='box-body']/ul/li[1]/p/a/b
     Sleep        3s
     Title Should Be       Ryans-iPhone | Client Devices | Ruckus WMS
