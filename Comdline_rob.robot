@@ -15,14 +15,12 @@ ${searchtext}     ryan
 *** Test Cases ***
 
 TestLogin
-    [Tags]       run-once
     Open Browser to the Login Page
     Enter User Name
     Enter Password
     Click Login
 
 Test Dashboard
-    [Tags]       run-once
     Title Should Be    Dashboard | Ruckus WMS
     Page Should Contain    Dashboard
     Page Should Contain    Throughput
@@ -37,37 +35,34 @@ Test Dashboard
 
 
 Test Admin page
-   Test Users page		 Administration	 Users	Accounts
-   Test List pages		 Administration	 Tenants	tenants	 Tenants
-   Test List page		 Administration	 Controller Authorization	controllerauthorization	Controller Authorization
-   Test Datamanagement page      Administration  Data Management   Agent Management
-   Test wmscluster page   	 Administration  WMS Cluster   Node Management
-   Test List page		 Administration	 Smartzone Releases   releases	 Smartzone Releases
+   Test Users page		 Administration	 Users	  Accounts
+   Test List pages		 Administration	 Tenants    tenants	 Tenants
+   Test List page		 Administration	 Controller Authorization    controllerauthorization	  Controller Authorization
+   Test Datamanagement page      Administration  Data Management     Agent Management
+   Test wmscluster page   	 Administration  WMS Cluster    Node Management
+   Test List page		 Administration	 Smartzone Releases   releases	  Smartzone Releases
 
 
 
 Test Manage pages
-    Test List page	Manage	 Dashboards	 manage	    Dashboards
-    Test List page	Manage	 Clusters	 clusters	Clusters
-    Test List page	Manage	 Zones	         zone	        Zones
-    Test List paging	Manage	 Controllers	 controller	Controllers
-    Test List access	Manage	 Access Points	 accesspoints	Access Points
-    Test List page	Manage	 Client Devices	  uedevices	Client Devices
+    Test List page	Manage	  Dashboards	 manage	    Dashboards
+    Test List page	Manage	 Clusters	 clusters	 Clusters
+    Test List page	Manage	 Zones	         zone	         Zones
+    Test List paging	Manage	 Controllers	 controller	 Controllers
+    Test List access	Manage	 Access Points	 accesspoints	 Access Points
+    Test List page	Manage	 Client Devices	   uedevices	 Client Devices
     Test List client	Manage	 Client Sessions 	uesessions	Client Sessions
 
 Test Report pages
-
-    Test List page	Reporting	Alarms	alarms	Alarms
-    Test List eventgraph	Reporting	Events	events	Events
+    Test List page	Reporting    Alarms	alarms	 Alarms
+    Test List eventgraph    Reporting    Events	  events   Events
 
 
 Test Global pages
-    [Tags]     run-once
     Click search button
 
 
 Logout From WMS
-    [Tags]       run-once
     Mouse Over    partial link = ${USERNAME}
     Click Element    link = Sign out
     Page Should Contain    Successfully logged out!
@@ -193,8 +188,6 @@ Test Datamanagement page
     Sleep        4s
     Click Button   Week
     Sleep        4s
-    Click Button   Month
-    Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    content
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    time
@@ -210,7 +203,7 @@ Test Datamanagement page
 
 
 Test Wmscluster page
-    [Arguments]  	${mainmenu}   ${text}  ${item}
+    [Arguments]  ${mainmenu}   ${text}  ${item}
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='nodes']
@@ -221,8 +214,6 @@ Test Wmscluster page
     Sleep	2s
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
-    Click Button    Upgrade
-    Sleep       2s
     Mouse Over    partial link = ${mainmenu}
     Mouse Over    partial link = ${text}
     Click Element   xpath=//*[@ui-sref='settings']
@@ -235,7 +226,7 @@ Test Wmscluster page
 
 
 Test List paging
-    [Arguments]	 ${mainmenu}	${submenu}    ${link}	${text}
+    [Arguments]	  ${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -248,8 +239,6 @@ Test List paging
     Click Button   Today
     Sleep        4s
     Click Button   Week
-    Sleep        4s
-    Click Button   Month
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    state
     Sleep        4s
@@ -268,7 +257,7 @@ Test List paging
 
 
 Test List access
-    [Arguments] 	${mainmenu} 	${submenu}    ${link}	${text}
+    [Arguments]	  ${mainmenu}	 ${submenu}    ${link}	 ${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -281,8 +270,6 @@ Test List access
     Click Button   Today
     Sleep        4s
     Click Button   Week
-    Sleep        4s
-    Click Button   Month
     Sleep        4s
     Select From List    xpath=//select[@ng-model='chart_type']    state
     Sleep        4s
@@ -301,7 +288,7 @@ Test List access
 
 
 Test List client
-    [Arguments] 	${mainmenu}	  ${submenu}    ${link}	${text}
+    [Arguments]	  ${mainmenu}	${submenu}    ${link}	${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -314,8 +301,6 @@ Test List client
      Click Button   Today
     Sleep        4s
     Click Button   Week
-    Sleep        4s
-    Click Button   Month
     Sleep        4s
     Select From List    xpath=//select[@ng-model='cls_type']    session
     Sleep        4s
@@ -338,7 +323,7 @@ Test List client
 
 
 Test List eventgraph
-    [Arguments]	 ${mainmenu}	  ${submenu}     ${link}	 ${text}
+    [Arguments]   ${mainmenu}	 ${submenu}    ${link}	 ${text}
     Mouse Over    partial link = ${mainmenu}
     Click Element    link = ${submenu}
     Sleep	3s
@@ -348,7 +333,7 @@ Test List eventgraph
     Sleep	2s
     Click Element   xpath=//div[@class='box-header with-border']/span/div/button[1]
     Sleep	2s
-     Click Button   Today
+    Click Button   Today
     Sleep        4s
     Click Button   Week
     Sleep        4s
@@ -356,23 +341,19 @@ Test List eventgraph
     Sleep        4s
     Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
     Sleep        2s
-    Click Element   xpath=//*[@id='temp']/div/section[2]/div/div[2]/div/wms-charts/div[1]/div/a/button
+    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
     Sleep        4s
     Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
     Sleep        2s
 
 
 Click search button
-    Click Element    xpath=//div[@class='form-group has-feedback']/input
-    Input Text     xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
+    Click Element   xpath=//div[@class='form-group has-feedback']/input
+    Input Text    xpath=//div[@class='form-group has-feedback']/input        ${searchtext}
     Sleep        2s
-    Press Key     xpath=//div[@class='form-group has-feedback']/input     \\13
+    Press Key     xpath=//div[@class='form-group has-feedback']/input    \\13
     Sleep        4s
-    Page Should Not Contain      highlight
-    Sleep     2s
-    Click Element     xpath=//div[@class='box-body']/ul/li[1]/p/a/b
-    Sleep        3s
-    Title Should Be       Ryans-iPhone | Client Devices | Ruckus WMS
+
 
 
 
