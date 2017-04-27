@@ -38,8 +38,8 @@ Test Admin page
    Test Users page		 Administration	 Users	  Accounts
    Test List pages		 Administration	 Tenants    tenants	 Tenants
    Test List page		 Administration	 Controller Authorization    controllerauthorization	  Controller Authorization
-   Test Datamanagement page      Administration  Data Management     Agent Management
-   Test wmscluster page   	 Administration  WMS Cluster    Node Management
+   Test Datamanagement page      Administration    Data Management      Agent Management
+   Test wmscluster page   	 Administration   WMS Cluster    Node Management
    Test List page		 Administration	 Smartzone Releases   releases	  Smartzone Releases
 
 
@@ -63,6 +63,9 @@ Test Global pages
 
 
 Logout From WMS
+    Mouse Over    partial link = ${USERNAME}
+    Click Element    link = Profile
+    Sleep     4s
     Mouse Over    partial link = ${USERNAME}
     Click Element    link = Sign out
     Page Should Contain    Successfully logged out!
