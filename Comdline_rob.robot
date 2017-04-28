@@ -340,14 +340,7 @@ Test List eventgraph
     Sleep        4s
     Click Button   Week
     Sleep        4s
-    Click Element   xpath=//*[@class='box-tools pull-right']/a/button
-    Sleep        4s
-    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
-    Sleep        2s
-    Click Element   xpath=//*[@id='temp']/div/section[2]/div[2]/div[2]/div/wms-charts/div[1]/div/a/button
-    Sleep        4s
-    Click Element   xpath=//div[@class='lv_button_top_close close_lightview lv_button_top_close_controls_type_relative']
-    Sleep        2s
+
 
 
 Click search button
